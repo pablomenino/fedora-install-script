@@ -33,6 +33,8 @@ use File::Basename;
 use Switch;
 use File::Path;
 use Fcntl;
+use Time::Progress;
+use Term::ReadKey;
 
 #----------------------------------------------------------------------
 # Variables -----------------------------------------------------------
@@ -86,11 +88,13 @@ my $pkg_dir_filename = $script_dir . "/";
 
 # The location of executable
 my $sudo = `which sudo`;
-my $dnf = `which ls`;
-#my $dnf = `which dnf`;
+my $dnf = `which dnf`;
 # Remove return line
 chomp($sudo);
 chomp($dnf);
+
+# Get terminal size
+my ($cols,$rows) = GetTerminalSize();
 
 #----------------------------------------------------------------------
 # Functions - print_help --------------------------------------------------------
@@ -314,22 +318,92 @@ sub read_package()
 			# Install packages - Begin
 			my $pkg_name;
 			my $cmd;
+			my $cmd_result = 0;
+			my $cmd_result_0 = 0;
+			my $cmd_result_other = 0;
+			my $pkg_name_fix = "";
 			
+			my $pkg_number = 0;
 			my $pkg_size = scalar @pkg_to_install;
 			
 			if ($pkg_size < 1)
 			{
 				die "ERROR: No packages to install. Check configuration files.\n";
 			}
+
+			# Check config for Update parameter, if this is true, run dnf update -y
+			if ($Update eq "true")
+			{
+				print "Running DNF update\n";
+	
+				$cmd_result = update_cmd();
+				if ($cmd_result != 0 )
+				{
+					die "ERROR: DNF update failed, check DNF logs for more information.\n";
+				}
+				else
+				{
+					print "\nDNF update done.\n\n";
+				}
+
+			}
+			
+			print "Install packages: The selected category is $category_pkg\n";
+			
+			$| = 1;
+			my $p = new Time::Progress;
+
+			$p->attr( min => 0, max => $pkg_size );
+
+			# Fix size for progress bar
+			my $cols_section1 = 0;
+			if ($cols > 51)
+			{
+				$cols_section1 = int($cols-50);
+			}
 			
 			foreach $pkg_name (@pkg_to_install)
 			{
-				$cmd = $sudo . " " . $dnf. " -y install " . $pkg_name;
-				print "" . $cmd . "\n";
-				#&execute_cmd( $cmd );
+				
+				$pkg_number=$pkg_number+1;
+
+				$cmd = $sudo . " " . $dnf. " -y install " . $pkg_name . " >/dev/null 2>&1";
+												
+				# Terminal size - cut string if more than 20 caracters
+				$pkg_name_fix = pack("A20",$pkg_name);
+			
+				# If terminal size is lower than 51, auto adjust progress bar size
+				if ($cols_section1 == 0)
+				{
+					print $p->report("[" . $pkg_number . "/" . $pkg_size ."] $pkg_name_fix |" . "%L %p\r", $pkg_number);
+				}
+				else
+				{
+					print $p->report("[" . $pkg_number . "/" . $pkg_size ."] $pkg_name_fix |" . "%L %". $cols_section1 ."b %p\r", $pkg_number);
+				}
+
+				$cmd_result = &execute_cmd( $cmd );
+				if ($cmd_result == 0 )
+				{
+					$cmd_result_0=$cmd_result_0+1;
+				}
+				else
+				{
+					$cmd_result_other=$cmd_result_other+1;
+				}
 			}
 			# Install packages - End
+			print $p->report("done %p elapsed: %L (%l sec)", $pkg_number);
+			print "\n\nInstalled packages:\n";
+			print "Successful: " . $cmd_result_0 . " | Failed: " . $cmd_result_other . "\n";
+			
+			if ($cmd_result_other > 0)
+			{
+				print "\nWARNING: They are $cmd_result_other packages failed, see log file for more information.\n";
+			}
+			
 			$return_value = 0;
+
 		}
 		
 	}
@@ -371,6 +445,15 @@ sub execute_cmd()
 {
 	my $systemCommand = $_[0];
     my $returnCode = system( $systemCommand );
+    return $returnCode;
+}
+
+#----------------------------------------------------------------------
+# Functions - update_cmd --------------------------------------------------------
+
+sub update_cmd()
+{
+	my $returnCode = &execute_cmd($sudo . " " . $dnf. " -y update");
 	return $returnCode;
 }
 

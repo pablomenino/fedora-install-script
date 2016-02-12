@@ -33,19 +33,19 @@ ConfVersion	0.2
 
 Configuration parameter documentation:
 
-CFG Values:
-  GenerateLog: Enable logs (true or false)
-  LogPath: Directory to store the logfile
-  LogMask: Mask for logging file
-  Update: Update OS before install packages, this execute dnf update before process package input file (true or false)
-  InstallBasedOnHostName: true or false
-     NOTE: If this value is false, the script read the imput packages to install from the file general.config
-     Otherwise the script read the imput packages from the file whit the current hostname in the filename
-     Example: if the hostname command return this:
-     $ hostname
-     crt72339xx
-     Then the imput file is crt72339xx.config
-  RunSudo: run sudo command? (true or false)
+CFG Values: <br />
+  GenerateLog: Enable logs (true or false) <br />
+  LogPath: Directory to store the logfile <br />
+  LogMask: Mask for logging file <br />
+  Update: Update OS before install packages, this execute dnf update before process package input file (true or false) <br />
+  InstallBasedOnHostName: true or false <br />
+     NOTE: If this value is false, the script read the imput packages to install from the file general.config <br />
+     Otherwise the script read the imput packages from the file whit the current hostname in the filename <br />
+     Example: if the hostname command return this: <br />
+     $ hostname <br />
+     crt72339xx <br />
+     Then the imput file is crt72339xx.config <br />
+  RunSudo: run sudo command? (true or false) <br />
   ShowProgressWindows: Show progress Message, otherwise only run in terminal. (true or false)
 
 General Configuration:
@@ -72,9 +72,9 @@ PackageSelectionVersion	0.2
 
 Configuration parameter documentation:
 
-Values:
-  PackageName: Name of package
-  Category: Optional Category (see documentation)
+Values: <br />
+  PackageName: Name of package <br />
+  Category: Optional Category (see documentation) <br />
 
 Configuration:
 

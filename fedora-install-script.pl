@@ -2,7 +2,7 @@
 
 #----------------------------------------------------------------------------------------
 # Fedora Install Script
-# Version: 0.2
+# Version: 0.3
 # 
 # WebSite:
 # https://github.com/pablomenino/fedora-install-script
@@ -40,15 +40,15 @@ use Term::ReadKey;
 # Variables -----------------------------------------------------------
 
 # Version Control
-my $version = "0.2";
-my $config_version = "0.2";
-my $package_version = "0.2";
+my $version = "0.3";
+my $config_version = "0.3";
+my $package_version = "0.3";
 
 # Configuration file format ... that can be opened
-my @version_check = ("0.1", "0.2");
+my @version_check = ("0.1", "0.2", "0.3");
 
 # Package file format ... that can be opened
-my @package_check = ("0.1", "0.2");
+my @package_check = ("0.1", "0.2", "0.3");
 
 # Home directory
 my $home = $ENV{"HOME"};

@@ -1,6 +1,6 @@
 # fedora-install-script
 
-**Version 0.2**
+**Version 0.3**
 
 Personal Fedora Installation Script based on pre-configured list selecting the hostname like input and/or filter by category of packages.
 
@@ -17,6 +17,7 @@ I have several VM whit Fedora, this scripts are to automatically install the bas
 * Fedora 22/23
 * DNF
 * User whit SUDO credentials
+* Perl
 
 #### Usage
 
@@ -24,11 +25,13 @@ I have several VM whit Fedora, this scripts are to automatically install the bas
 
 See example file fedora-install-script.config
 
+Separate the columns with TAB (tab-delimited)
+
 This 2 parameters are the version of the configuration file:
 
 ```bash
 # Reserved values:
-ConfVersion	0.2
+ConfVersion	0.3
 ```
 
 Configuration parameter documentation:
@@ -50,6 +53,8 @@ CFG Values: <br />
 
 General Configuration:
 
+Separate the columns with TAB (tab-delimited)
+
 ```bash
 # GenerateLog	LogPath	LogMask	Update	InstallBasedOnHostName	RunSudo	ShowProgressWindows
 true	$HOME/fedora-install.log	0600	true	true	true	true
@@ -67,7 +72,7 @@ This 2 parameters are the version of the PackageSelection file:
 
 ```bash
 # Reserved values:
-PackageSelectionVersion	0.2
+PackageSelectionVersion	0.3
 ```
 
 Configuration parameter documentation:

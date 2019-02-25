@@ -1,9 +1,10 @@
-# fedora-install-script
+<h3 align="center">fedora-install-script</h3>
+<p align="center">Personal Fedora Installation Script based on pre-configured list selecting the hostname like input and/or filter by category of packages.</p>
 
-![GitHub release](https://img.shields.io/github/release/pablomenino/fedora-install-script.svg) 
-![GitHub](https://img.shields.io/github/license/pablomenino/fedora-install-script.svg)
-
-**Version 0.3**
+<p align="center">
+<a href="https://github.com/pablomenino/fedora-install-script/releases"><img src="https://img.shields.io/github/release/pablomenino/fedora-install-script.svg"></a>
+<a href="./LICENSE"><img src="https://img.shields.io/github/license/pablomenino/fedora-install-script.svg"></a>
+</p>
 
 Personal Fedora Installation Script based on pre-configured list selecting the hostname like input and/or filter by category of packages.
 
@@ -12,6 +13,7 @@ I have several VM whit Fedora, this scripts are to automatically install the bas
 ## Table of contents
 
 * [How to Use](#how-to-use)
+* [ToDo](#todo)
 
 ## <a name="how-to-use">How to Use
 
@@ -21,6 +23,8 @@ I have several VM whit Fedora, this scripts are to automatically install the bas
 * DNF
 * User whit SUDO credentials
 * Perl
+* perl-Switch
+* perl-Time-Progress
 
 #### Usage
 
@@ -34,25 +38,27 @@ This 2 parameters are the version of the configuration file:
 
 ```bash
 # Reserved values:
-ConfVersion	0.3
+ConfVersion	0.4
 ```
 
 Configuration parameter documentation:
 
-CFG Values: <br />
-  GenerateLog: Enable logs (true or false) <br />
-  LogPath: Directory to store the logfile <br />
-  LogMask: Mask for logging file <br />
-  Update: Update OS before install packages, this execute dnf update before process package input file (true or false) <br />
-  InstallBasedOnHostName: true or false <br />
-     NOTE: If this value is false, the script read the imput packages to install from the file general.config <br />
-     Otherwise the script read the imput packages from the file whit the current hostname in the filename <br />
-     Example: if the hostname command return this: <br />
-     $ hostname <br />
-     crt72339xx <br />
-     Then the imput file is crt72339xx.config <br />
-  RunSudo: run sudo command? (true or false) <br />
+```
+CFG Values:
+  GenerateLog: Enable logs (true or false)
+  LogPath: Directory to store the logfile
+  LogMask: Mask for logging file
+  Update: Update OS before install packages, this execute dnf update before process package input file (true or false)
+  InstallBasedOnHostName: true or false
+     NOTE: If this value is false, the script read the imput packages to install from the file general.config
+     Otherwise the script read the imput packages from the file whit the current hostname in the filename
+     Example: if the hostname command return this:
+     $ hostname
+     crt72339xx
+     Then the imput file is crt72339xx.config
+  RunSudo: run sudo command? (true or false)
   ShowProgressWindows: Show progress Message, otherwise only run in terminal. (true or false)
+```
 
 General Configuration:
 
@@ -75,7 +81,7 @@ This 2 parameters are the version of the PackageSelection file:
 
 ```bash
 # Reserved values:
-PackageSelectionVersion	0.3
+PackageSelectionVersion	0.4
 ```
 
 Configuration parameter documentation:
@@ -88,7 +94,7 @@ Configuration:
 
 ```bash
 # PackageName	Category
-terminator	utility
+screen	utility
 mc	utility2
 ```
 
@@ -129,3 +135,8 @@ If you run the script on any computer whit the parameter InstallBasedOnHostName 
 ```
 
 NOTE: Based on the configuration example on this documentation, only the package terminator is installed.
+
+## <a name="todo">ToDo
+
+* Log to file
+* disable ShowProgressWindows implementation (show terminal output)

@@ -2,20 +2,20 @@
 
 #----------------------------------------------------------------------------------------
 # Fedora Install Script
-# Version: 0.3
+# Version: 0.4
 # 
 # WebSite:
 # https://github.com/pablomenino/fedora-install-script
 # http://pablomenino.github.io/fedora-install-script
 # 
-# Copyright © 2016 - Pablo Meniño <pablo.menino@gmail.com>
+# Copyright © 2019 - Pablo Meniño <pablo.menino@gmail.com>
 #----------------------------------------------------------------------------------------
 
 #----------------------------------------------------------------------
 # Log Messages
-# WARNING Package already installed
-# ERROR Error when try to install the package 
-# OK Package installed properly
+#	WARNING Package already installed
+#	ERROR Error when try to install the package 
+#	OK Package installed properly
 # list categorys
 # list packages
 # list categorys full
@@ -40,15 +40,15 @@ use Term::ReadKey;
 # Variables -----------------------------------------------------------
 
 # Version Control
-my $version = "0.3";
-my $config_version = "0.3";
-my $package_version = "0.3";
+my $version = "0.4";
+my $config_version = "0.4";
+my $package_version = "0.4";
 
 # Configuration file format ... that can be opened
-my @version_check = ("0.1", "0.2", "0.3");
+my @version_check = ("0.1", "0.2", "0.3", "0.4");
 
 # Package file format ... that can be opened
-my @package_check = ("0.1", "0.2", "0.3");
+my @package_check = ("0.1", "0.2", "0.3", "0.4");
 
 # Home directory
 my $home = $ENV{"HOME"};
@@ -101,9 +101,7 @@ my ($cols,$rows) = GetTerminalSize();
 
 sub print_help()
 {
-	print "Fedora Install script - Version $version\n";
-	print "Copyright © 2016 - Pablo Meniño <pablo.menino\@gmail.com>\n";
-	print "\n";
+	print_version();
 	print "Usage: $0 [options]\n";
 	print "\n";
 	print "options:\n";
@@ -120,7 +118,7 @@ sub print_help()
 sub print_version()
 {
 	print "Fedora Install script - Version $version\n";
-	print "Copyright © 2016 - Pablo Meniño <pablo.menino\@gmail.com>\n";
+	print "Copyright © 2019 - Pablo Meniño <pablo.menino\@gmail.com>\n";
 	print "\n";
 }
 
@@ -367,7 +365,17 @@ sub read_package()
 				
 				$pkg_number=$pkg_number+1;
 
-				$cmd = $sudo . " " . $dnf. " -y install " . $pkg_name . " >/dev/null 2>&1";
+				my $sudo_tmp="";
+				if ( $RunSudo eq "true" )
+				{
+					$sudo_tmp=$sudo;
+				}
+				else
+				{
+					$sudo_tmp="";
+				}
+
+				$cmd = $sudo_tmp . " " . $dnf. " -y install " . $pkg_name . " >/dev/null 2>&1";
 												
 				# Terminal size - cut string if more than 20 caracters
 				$pkg_name_fix = pack("A20",$pkg_name);
@@ -453,7 +461,18 @@ sub execute_cmd()
 
 sub update_cmd()
 {
-	my $returnCode = &execute_cmd($sudo . " " . $dnf. " -y update");
+	my $sudo_tmp="";
+
+	if ( $RunSudo eq "true" )
+	{
+		$sudo_tmp=$sudo;
+	}
+	else
+	{
+		$sudo_tmp="";
+	}
+
+	my $returnCode = &execute_cmd($sudo_tmp . " " . $dnf. " -y update");
 	return $returnCode;
 }
 
@@ -468,7 +487,7 @@ sub install_pkg_cat()
 }
 
 #----------------------------------------------------------------------
-# Functions - install_pkg_cat --------------------------------------------------------
+# Functions - check_software --------------------------------------------------------
 
 sub check_software()
 {

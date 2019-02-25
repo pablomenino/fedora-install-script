@@ -1,5 +1,8 @@
 # fedora-install-script
 
+![GitHub release](https://img.shields.io/github/release/pablomenino/fedora-install-script.svg) 
+![GitHub](https://img.shields.io/github/license/pablomenino/fedora-install-script.svg)
+
 **Version 0.3**
 
 Personal Fedora Installation Script based on pre-configured list selecting the hostname like input and/or filter by category of packages.

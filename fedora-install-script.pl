@@ -11,6 +11,9 @@
 # Copyright © 2019 - Pablo Meniño <pablo.menino@gmail.com>
 #----------------------------------------------------------------------------------------
 
+# sudo dnf install -y perl-core
+# sudo dnf install -y perl-Switch perl-Time-Progress
+
 #----------------------------------------------------------------------
 # Log Messages
 #	WARNING Package already installed

@@ -2,8 +2,8 @@
 <p align="center">Personal Fedora Installation Script based on pre-configured list selecting the hostname like input and/or filter by category of packages.</p>
 
 <p align="center">
-<a href="https://github.com/pablomenino/fedora-install-script/releases"><img src="https://img.shields.io/github/release/pablomenino/fedora-install-script.svg"></a>
-<a href="./LICENSE"><img src="https://img.shields.io/github/license/pablomenino/fedora-install-script.svg"></a>
+<img src="https://img.shields.io/github/release/pablomenino/fedora-install-script.svg">
+<img src="https://img.shields.io/github/license/pablomenino/fedora-install-script.svg">
 </p>
 
 Personal Fedora Installation Script based on pre-configured list selecting the hostname like input and/or filter by category of packages.

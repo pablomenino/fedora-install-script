@@ -2,27 +2,13 @@
 
 #----------------------------------------------------------------------------------------
 # Fedora Install Script
-# Version: 0.4
+# Version: 0.4.1
 # 
 # WebSite:
-# https://github.com/pablomenino/fedora-install-script
-# http://pablomenino.github.io/fedora-install-script
+# https://git.mfwlab.com/lab/fedora-install-script/
 # 
-# Copyright © 2019 - Pablo Meniño <pablo.menino@gmail.com>
+# Copyright © 2020 - Pablo Meniño <pablo.menino@mfwlab.com>
 #----------------------------------------------------------------------------------------
-
-# sudo dnf install -y perl-core
-# sudo dnf install -y perl-Switch perl-Time-Progress
-
-#----------------------------------------------------------------------
-# Log Messages
-#	WARNING Package already installed
-#	ERROR Error when try to install the package 
-#	OK Package installed properly
-# list categorys
-# list packages
-# list categorys full
-#----------------------------------------------------------------------
 
 #----------------------------------------------------------------------
 # Use declaration -----------------------------------------------------
@@ -121,7 +107,7 @@ sub print_help()
 sub print_version()
 {
 	print "Fedora Install script - Version $version\n";
-	print "Copyright © 2019 - Pablo Meniño <pablo.menino\@gmail.com>\n";
+	print "Copyright © 2020 - Pablo Meniño <pablo.menino\@mfwlab.com>\n";
 	print "\n";
 }
 

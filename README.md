@@ -1,34 +1,39 @@
 <h3 align="center">fedora-install-script</h3>
-<p align="center">Personal Fedora Installation Script based on pre-configured list selecting the hostname like input and/or filter by category of packages.</p>
+<p align="center">Personal Fedora Installation Script, can filter hostname to select the node destination and have a pre-configured list of selected packages to install and/or filter by category of packages.</p>
 
 <p align="center">
 <img src="https://img.shields.io/github/release/pablomenino/fedora-install-script.svg">
 <img src="https://img.shields.io/github/license/pablomenino/fedora-install-script.svg">
 </p>
 
-Personal Fedora Installation Script based on pre-configured list selecting the hostname like input and/or filter by category of packages.
-
 I have several VM whit Fedora, this scripts are to automatically install the based packages on this new installed OS, to make this systems ready to compile and test applications.
+
+[![asciicast](https://asciinema.org/a/366009.svg)](https://asciinema.org/a/366009)
 
 ## Table of contents
 
 * [How to Use](#how-to-use)
-* [ToDo](#todo)
 
 ## <a name="how-to-use">How to Use
 
 #### Requirements
 
-* Fedora 22/23
+* Fedora (Tested on 22 to 32)
 * DNF
 * User whit SUDO credentials
 * Perl
 * perl-Switch
 * perl-Time-Progress
 
-#### Usage
+**Fedora: Install packages**
 
-###### Application configuration
+```
+sudo dnf install perl perl-switch perl-time-progress
+```
+
+## Usage
+
+### Application configuration
 
 See example file fedora-install-script.config
 
@@ -71,11 +76,9 @@ true	$HOME/fedora-install.log	0600	true	true	true	true
 
 Package selection configuration (the software to install in the OS)
 
-See examples files general.config and NORC.config
+See examples files general.config
 
 general.config is the input file when the parameter InstallBasedOnHostName is false on the configuration file.
-
-NORC.config is the input file when the parameter InstallBasedOnHostName is true on the configuration file and the hostname is NORC on the computer that is running this script.
 
 This 2 parameters are the version of the PackageSelection file:
 
@@ -98,14 +101,14 @@ screen	utility
 mc	utility2
 ```
 
-###### Running the script
+### Running the script
 
 Target hostname:
 
-If you run the script on the computer whit hostname NORC and the parameter InstallBasedOnHostName true in the configuration file, the file NORC.config is used like input list for install the packages in the OS.
+If you run the script on the computer whit hostname NORC and the parameter InstallBasedOnHostName true in the configuration file, the file norc.config is used like input list for install the packages in the OS.
 
 ```bash
-/PATH-TO-SCRIPT/fedora-install-script.pl
+/PATH-TO-SCRIPT/fedora-install-script.pl --install_pkg
 ```
 
 General package selection:
@@ -113,7 +116,7 @@ General package selection:
 If you run the script on any computer whit the parameter InstallBasedOnHostName false, the file general.config is used like input list for install the packages in the OS.
 
 ```bash
-/PATH-TO-SCRIPT/fedora-install-script.pl
+/PATH-TO-SCRIPT/fedora-install-script.pl --install_pkg
 ```
 
 Target hostname and filter install list by category:
@@ -121,7 +124,7 @@ Target hostname and filter install list by category:
 If you run the script on the computer whit hostname NORC and the parameter InstallBasedOnHostName true in the configuration file, the file NORC.config is used like input list for install the packages in the OS but only the packages that matches whit the category selected are installed.
 
 ```bash
-/PATH-TO-SCRIPT/fedora-install-script.pl utility2
+/PATH-TO-SCRIPT/fedora-install-script.pl --install_pkg_cat utility2
 ```
 
 NOTE: Based on the configuration example on this documentation, only the package mc is installed.
@@ -131,12 +134,7 @@ General package selection  and filter install list by category:
 If you run the script on any computer whit the parameter InstallBasedOnHostName false, the file general.config is used like input list for install the packages in the OS but only the packages that matches whit the category selected are installed
 
 ```bash
-/PATH-TO-SCRIPT/fedora-install-script.pl utility
+/PATH-TO-SCRIPT/fedora-install-script.pl --install_pkg_cat utility
 ```
 
 NOTE: Based on the configuration example on this documentation, only the package terminator is installed.
-
-## <a name="todo">ToDo
-
-* Log to file
-* disable ShowProgressWindows implementation (show terminal output)

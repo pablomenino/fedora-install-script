@@ -5,7 +5,7 @@
 # Version: 0.4.1
 # 
 # WebSite:
-# https://git.mfwlab.com/lab/fedora-install-script/
+# https://lab.mfwlab.com/lab/fedora-install-script/
 # 
 # Copyright © 2020 - Pablo Meniño <pablo.menino@mfwlab.com>
 #----------------------------------------------------------------------------------------

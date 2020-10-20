@@ -2,7 +2,7 @@
 
 #----------------------------------------------------------------------------------------
 # Fedora Install Script
-# Version: 0.4.1
+# Version: 0.4.2
 # 
 # WebSite:
 # https://lab.mfwlab.com/lab/fedora-install-script/
@@ -29,7 +29,7 @@ use Term::ReadKey;
 # Variables -----------------------------------------------------------
 
 # Version Control
-my $version = "0.4";
+my $version = "0.4.2";
 my $config_version = "0.4";
 my $package_version = "0.4";
 

@@ -1,5 +1,6 @@
 <h3 align="center">fedora-install-script</h3>
-<p align="center">Personal Fedora Installation Script, can filter hostname to select the node destination and have a pre-configured list of selected packages to install and/or filter by category of packages.</p>
+<h3 align="center">Version: 0.4.2</h3>
+<p align="center">Fedora Installation Script, can filter hostname to select the node destination and have a pre-configured list of selected packages to install and/or filter by category of packages.</p>
 
 <p align="center">
 <img src="https://img.shields.io/github/release/pablomenino/fedora-install-script.svg">
@@ -8,7 +9,9 @@
 
 I have several VM whit Fedora, this scripts are to automatically install the based packages on this new installed OS, to make this systems ready to compile and test applications.
 
-[![asciicast](https://asciinema.org/a/366009.svg)](https://asciinema.org/a/366009)
+[WebSite](https://lab.mfwlab.com/lab/fedora-install-script/)
+
+[![asciicast](https://asciinema.org/a/366508.svg)](https://asciinema.org/a/366508)
 
 ## Table of contents
 

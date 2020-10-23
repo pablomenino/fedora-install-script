@@ -141,3 +141,13 @@ If you run the script on any computer whit the parameter InstallBasedOnHostName 
 ```
 
 NOTE: Based on the configuration example on this documentation, only the package terminator is installed.
+
+## You can support me:
+
+### Librepay:
+
+<a href="https://liberapay.com/pablomenino/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+
+### Paypal:
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4HPTG85J8NQVG)

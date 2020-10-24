@@ -2,7 +2,7 @@
 
 #----------------------------------------------------------------------------------------
 # Fedora Install Script
-# Version: 0.4.2
+# Version: 0.4.3
 # 
 # WebSite:
 # https://lab.mfwlab.com/lab/fedora-install-script/

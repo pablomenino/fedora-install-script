@@ -1,23 +1,40 @@
-<h3 align="center">fedora-install-script</h3>
-<h3 align="center">Version: 0.4.2</h3>
-<p align="center">Fedora Installation Script, can filter hostname to select the node destination and have a pre-configured list of selected packages to install and/or filter by category of packages.</p>
+<!-- start badges -->
+![GitHub release](https://img.shields.io/github/release/pablomenino/fedora-install-script)
+![GitHub license](https://img.shields.io/github/license/pablomenino/fedora-install-script)
+![GitHub last commit](https://img.shields.io/github/last-commit/pablomenino/fedora-install-script)
+![GitHub repo size](https://img.shields.io/github/repo-size/pablomenino/fedora-install-script)
+![Contributors](https://img.shields.io/github/contributors-anon/pablomenino/fedora-install-script)
+![GitHub followers](https://img.shields.io/github/followers/pablomenino?label=Follow)
+![Twitter Follow](https://img.shields.io/twitter/follow/pmenino)
+<!-- end badges -->
 
-<p align="center">
-<img src="https://img.shields.io/github/release/pablomenino/fedora-install-script.svg">
-<img src="https://img.shields.io/github/license/pablomenino/fedora-install-script.svg">
+<!-- start description -->
+<h1>Welcome to fedora-install-script 👋</h1>
+<p>
+    <a href="https://lab.mfwlab.com/lab/fedora-install-script/" id="homepage" rel="nofollow">
+        <img align="right" height="128" id="icon" src="logo.svg" width="128"/>
+    </a>
 </p>
-
-I have several VM whit Fedora, this scripts are to automatically install the based packages on this new installed OS, to make this systems ready to compile and test applications.
-
-[WebSite](https://lab.mfwlab.com/lab/fedora-install-script/)
-
-[![asciicast](https://asciinema.org/a/366508.svg)](https://asciinema.org/a/366508)
+<h2>🏠 <a href="https://lab.mfwlab.com/lab/fedora-install-script/" id="homepage">Homepage</a></h2>
+<p>
+    fedora-install-script is a Installation Script, that can filter hostname to select the node destination and have a pre-configured list of selected packages to install, and/or filter by category of packages to install.
+</p>
+<!-- end description -->
 
 ## Table of contents
 
+* [How it works](#how-it-works)
 * [How to Use](#how-to-use)
+* [Support me](#support-me)
+* [Third party](#third-party)
+
+## <a name="how-it-works"> How it works
+
+I have several VM whit Fedora, this scripts are to automatically install a pre configured list of packages on this new installed OS, to make this systems ready to compile and test applications.
 
 ## <a name="how-to-use">How to Use
+
+[![asciicast](https://asciinema.org/a/366508.svg)](https://asciinema.org/a/366508)
 
 #### Requirements
 
@@ -142,12 +159,16 @@ If you run the script on any computer whit the parameter InstallBasedOnHostName 
 
 NOTE: Based on the configuration example on this documentation, only the package terminator is installed.
 
-## You can support me:
+## <a name="support-me">Support me:
 
-### Librepay:
+### Librepay
 
 <a href="https://liberapay.com/pablomenino/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 
-### Paypal:
+### Paypal
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4HPTG85J8NQVG)
+
+## <a name="third-party">Third party:
+
+* **Icons:** The icon images are from [Tela Icon Theme](https://github.com/vinceliuice/Tela-icon-theme)
